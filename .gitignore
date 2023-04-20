@@ -1,0 +1,33 @@
+# Ignore Python build and cache files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pyc
+*.pyo
+*.pyd
+*.so
+
+# Ignore Python virtual environment files
+venv/
+env/
+*.venv
+
+# Ignore files created by Poetry
+dist/
+*.egg-info/
+
+# Ignore Jupyter Notebook files
+.ipynb_checkpoints/
+
+# Ignore .env files (to keep API keys and secrets safe)
+.env
+
+# Ignore data files (input/output)
+data/
+
+# Ignore other common files
+.DS_Store
+*.log
+*.swp
+*.swo

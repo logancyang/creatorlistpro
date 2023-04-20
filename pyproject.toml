@@ -6,6 +6,9 @@ authors = ["Logan Yang <logancyang@gmail.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.8"
+tweepy = "^4.13.0"
+mypy = "^1.2.0"
+python-dotenv = "^1.0.0"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"

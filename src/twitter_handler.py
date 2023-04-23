@@ -14,10 +14,10 @@ def get_all_followings(client, username):
             user_id,
             max_results=1000,
             pagination_token=pagination_token,
-            user_fields=['id'],
+            user_fields=['id', 'name', 'description'],
             user_auth=True
         )
-        followings.extend([user.id for user in response.data])
+        followings.extend(response.data)
 
         if 'next_token' in response.meta:
             pagination_token = response.meta['next_token']
@@ -32,4 +32,10 @@ followings = get_all_followings(api_client, my_user_name)
 
 # Save followings to a JSON file
 with open('output.json', 'w') as f:
-    json.dump(followings, f)
+    json.dump([
+        {
+            'id': user.id,
+            'name': user.name,
+            'bio': user.description
+        } for user in followings], f
+    )

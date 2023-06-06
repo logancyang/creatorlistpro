@@ -11,7 +11,7 @@ To run:  python src/twitter_handler.py
 
 import json
 
-from utils.api_utils import setup_account, setup_tweepy_client
+from utils.api_utils import setup_tweepy_client
 
 
 def get_all_followings(client, username):
@@ -37,19 +37,17 @@ def get_all_followings(client, username):
 
     return followings
 
-account = setup_account()
-account.unfollow(813286)
 
-# api_client = setup_tweepy_client()
-# my_user_name = 'logancyang'
-# followings = get_all_followings(api_client, my_user_name)
+api_client = setup_tweepy_client()
+my_user_name = 'logancyang'
+followings = get_all_followings(api_client, my_user_name)
 
-# # Save followings to a JSON file
-# with open('output.json', 'w') as f:
-#     json.dump([
-#         {
-#             'id': user.id,
-#             'name': user.name,
-#             'bio': user.description
-#         } for user in followings], f
-#     )
+# Save followings to a JSON file
+with open('output.json', 'w') as f:
+    json.dump([
+        {
+            'id': user.id,
+            'name': user.name,
+            'bio': user.description
+        } for user in followings], f
+    )
